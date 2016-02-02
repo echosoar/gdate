@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="gdate_1.0.css"/>
+<body>
+<style>
+input{
+	width:210px;
+	padding:10px;
+	border:1px solid #ccc;
+}
+</style>
+<input type="text" id="form_in" placeholder="点击选择日期" readonly/>
+<script src="gdate_1.0.js"></script>
+<script>
+document.getElementById("form_in").onfocus=function(){
+	gdate("#form_in",function(res){
+		document.getElementById("form_in").value=res.year+"-"+res.month+"-"+res.day;
+	});
+}
+</script>
+
+</body>
