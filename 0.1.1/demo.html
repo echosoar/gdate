@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GDate v0.1.1</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="gdate_0.1.1.css"/>
+</head>
+<body>
+<style>
+body{
+	margin: 0px;
+  font-family: 微软雅黑,黑体,Helvetica,华文黑体;
+  font-size: 14px;
+  color: #333;
+  font-style: normal;
+  background-color: #FFF;
+}
+#center{
+	width:360px;
+	margin:20px auto;
+}
+input{
+	width:300px;
+	padding:10px;
+	margin-bottom:20px;
+	border:1px solid #ccc;
+}
+</style>
+<div id="center">
+点击下面选择yyyy格式的年份:<br>
+<input type="text" id="form_yyyy" placeholder="点击选择yyyy格式的年份" gdate-format="yyyy" readonly/><br>
+点击下面选择yy格式的年份:<br>
+<input type="text" id="form_yy" placeholder="点击选择yy格式的年份" gdate-format="yy" readonly/><br>
+点击下面选择mm格式的年份:<br>
+<input type="text" id="form_mm" placeholder="点击选择mm格式的月份" gdate-format="mm" readonly/><br>
+点击下面选择m格式的年份:<br>
+<input type="text" id="form_m" placeholder="点击选择m格式的月份" gdate-format="m" readonly/><br>
+点击下面选择dd格式的年份:<br>
+<input type="text" id="form_dd" placeholder="点击选择dd格式的日期" gdate-format="dd" readonly/><br>
+点击下面选择d格式的年份:<br>
+<input type="text" id="form_d" placeholder="点击选择d格式的日期" gdate-format="d" readonly/><br>
+点击下面选择yyyy-mm格式的年份:<br>
+<input type="text" id="form_yyyymm" placeholder="点击选择yyyy-mm格式的年月" gdate-format="yyyy-mm" readonly/><br>
+点击下面选择yyyy-mm-dd格式的年份:<br>
+<input type="text" id="form_yyyymmdd" placeholder="点击选择yyyy-mm-dd格式的年月" gdate-format="yyyy-mm-dd" readonly/><br>
+</div>
+<script src="gdate_0.1.1.js"></script>
+<script>
+document.getElementById("form_yyyy").onfocus=function(){
+	gdate("#form_yyyy",function(dateStr){
+		document.getElementById("form_yyyy").value=dateStr;
+	});
+}
+document.getElementById("form_yy").onfocus=function(){
+	gdate("#form_yy",function(dateStr){
+		document.getElementById("form_yy").value=dateStr;
+	});
+}
+document.getElementById("form_mm").onfocus=function(){
+	gdate("#form_mm",function(dateStr){
+		document.getElementById("form_mm").value=dateStr;
+	});
+}
+document.getElementById("form_m").onfocus=function(){
+	gdate("#form_m",function(dateStr){
+		document.getElementById("form_m").value=dateStr;
+	});
+}
+document.getElementById("form_dd").onfocus=function(){
+	gdate("#form_dd",function(dateStr){
+		document.getElementById("form_dd").value=dateStr;
+	});
+}
+document.getElementById("form_d").onfocus=function(){
+	gdate("#form_d",function(dateStr){
+		document.getElementById("form_d").value=dateStr;
+	});
+}
+document.getElementById("form_yyyymm").onfocus=function(){
+	gdate("#form_yyyymm",function(dateStr){
+		document.getElementById("form_yyyymm").value=dateStr;
+	});
+}
+document.getElementById("form_yyyymmdd").onfocus=function(){
+	gdate("#form_yyyymmdd",function(dateStr){
+		document.getElementById("form_yyyymmdd").value=dateStr;
+	});
+}
+
+</script>
+</body>
+</html>
