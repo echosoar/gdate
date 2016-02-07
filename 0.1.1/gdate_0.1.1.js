@@ -1,6 +1,6 @@
 /*
 * GDate v0.1.1 
-* Author by EchoSoar
+* Author by EchoSoar 
 * WebSite:http://iwenku.net 
 */
 (function(obj){
