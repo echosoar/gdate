@@ -305,6 +305,6 @@
 	function getMonthNum(Year,Month){
 		var d = new Date(Year,Month,0);
 		return d.getDate();
-	}
+	} 
 	obj.gdate=gdate;
 })(window);
