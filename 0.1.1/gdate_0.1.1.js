@@ -1,4 +1,8 @@
-/*GDate v0.1.1 / Author by EchoSoar / WebSite:http://iwenku.net */
+/*
+* GDate v0.1.1 
+* Author by EchoSoar
+* WebSite:http://iwenku.net 
+*/
 (function(obj){
 	var gdate=function(selection,callback){
 		callback=callback||function(dateStr){alert(dateStr);};
@@ -43,10 +47,26 @@
 	}
 	/* Get Object by Selection String*/
 	function query(selection){
-			if(document.querySelector){
+			if(!document.querySelector){
 				return document.querySelector(selection);
 			}
+			var charat=selection.charAt(0);
+			if(charat=="#"){
+				return document.getElementById(selection.substr(1));
+			}else if(charat=="."){
+				return getElementByClassName(selection.substr(1));
+			}
 			return false;
+	}
+	/*GetElementByClassName*/
+	function getElementByClassName(selector){
+		var all = document.all ? document.all : document.getElementsByTagName('*');
+		for ( var e = 0; e < all.length; e ++ ) {
+	      if (all[e].className == selector) {
+	        return all[e];
+	      }
+	    }
+		return false;
 	}
 	/*Create Gdate div or reset Gdate div*/
 	function initial(obj,callback){
