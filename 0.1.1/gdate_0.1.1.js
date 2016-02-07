@@ -7,7 +7,7 @@
 	var gdate=function(selection,callback){
 		callback=callback||function(dateStr){alert(dateStr);};
 		return gdate.pro.init(selection,callback);
-	},tYear=(new Date).getFullYear(),tMonth=(new Date).getMonth()+1,tDay=(new Date).getDate(),comD=new Date,nowPage=0,formatToNum=0;
+	},tYear=(new Date).getFullYear(),tMonth=(new Date).getMonth()+1,tDay=(new Date).getDate(),comD=new Date,nowPage=0,formatToNum=0,isOn=false;
 	gdate.config={
 		containName:'gdate_contain',
 		topName:'gdate_top',
@@ -24,7 +24,7 @@
 		dayBtnNow:'gdate_btn_day_now',
 		dayBtnNot:'gdate_btn_day_not',
 		dayDate:'gdate_day_date',
-		marginTop:20,
+		marginTop:10,
 		format:'yy-mm-dd'
 	};
 	Date.prototype.format =function(format){
@@ -91,7 +91,7 @@
 		formatToNum=extFormat(gdate.config.format);
 		firstPage();
 		setCss(containObj,{top:obj.offsetTop+obj.offsetHeight+gdate.config.marginTop+'px',left:obj.offsetLeft+'px',display:'block'});
-		query("#"+gdate.config.containName).onclick=function(e){
+		query("#"+gdate.config.contentName).onclick=function(e){
 			e=e||window.event;
 			var target=e.srcElement||e.target,datatype=target.getAttribute("gdate-type");
 			if(datatype){
@@ -177,6 +177,17 @@
 					createMonthPage();
 				}
 			}
+		}
+		query("#"+gdate.config.containName).onmouseover=function(){
+			isOn=true;
+		}
+		query("#"+gdate.config.containName).onmouseout=function(){
+			isOn=false;
+		}
+		document.body.onclick=function(e){
+			e=e||window.event;
+			var target=e.srcElement||e.target;
+			if(target!=gdate.pro.gObj&&!isOn){endPage();}
 		}
 	}
 	/*Create div*/
@@ -294,11 +305,6 @@
 	function getMonthNum(Year,Month){
 		var d = new Date(Year,Month,0);
 		return d.getDate();
-	}
-	document.onclick=function(e){
-		e=e||window.event;
-		var target=e.srcElement||e.target;
-		if(target==gdate.pro.gObj||target.getAttribute("gdate-type")||target.getAttribute("gdate-version")){}else{endPage();}
 	}
 	obj.gdate=gdate;
 })(window);
