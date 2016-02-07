@@ -1,6 +1,6 @@
 /*
 * GDate v0.1.1 
-* Author by EchoSoar 
+* Author by EchoSoar
 * WebSite:http://iwenku.net 
 */
 (function(obj){
@@ -28,9 +28,11 @@
 		format:'yy-mm-dd'
 	};
 	Date.prototype.format =function(format){
+		var thisMonth=this.getMonth()+1+'';
+		var thisDay=this.getDate()+'';
 		if(/(y+)/.test(format)) format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4- RegExp.$1.length));
-		if(/(m+)/.test(format)) format=format.replace(RegExp.$1,RegExp.$1.length==1?(this.getMonth()+1):("00"+(this.getMonth()+1)).substr(-2));
-		if(/(d+)/.test(format)) format=format.replace(RegExp.$1,RegExp.$1.length==1?this.getDate():("00"+this.getDate()).substr(-2));
+		if(/(m+)/.test(format)) format=format.replace(RegExp.$1,RegExp.$1.length==1?thisMonth:("00"+thisMonth).substr(thisMonth.length,2));
+		if(/(d+)/.test(format)) format=format.replace(RegExp.$1,RegExp.$1.length==1?thisDay:("00"+thisDay).substr(thisDay.length,2));
 		return format;
 	}
 	var cnMonthStr=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
