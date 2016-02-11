@@ -15,7 +15,6 @@
 		topMiddle:'gdate_top_middle',
 		topRight:'gdate_top_right',
 		contentName:'gdate_content',
-		otherName:'gdate_other',
 		yearBtn:'gdate_btn_year',
 		yearBtnNow:'gdate_btn_year_now',
 		monthBtn:'gdate_btn_month',
@@ -86,7 +85,6 @@
 			temTopObj.appendChild(createDiv(gdate.config.topLeft));
 			temTopObj.appendChild(createDiv(gdate.config.topMiddle));
 			temTopObj.appendChild(createDiv(gdate.config.topRight));
-			temTopObj.appendChild(createDiv(gdate.config.otherName));
 		}
 		formatToNum=extFormat(gdate.config.format);
 		firstPage();
@@ -305,6 +303,8 @@
 	function getMonthNum(Year,Month){
 		var d = new Date(Year,Month,0);
 		return d.getDate();
-	} 
+	}
+	
+	
 	obj.gdate=gdate;
 })(window);
