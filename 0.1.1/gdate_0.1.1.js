@@ -77,14 +77,13 @@
 		var containObj=query("#"+gdate.config.containName);
 		if(!containObj){
 			var contain=createDiv(gdate.config.containName);
+			var temTop=createDiv(gdate.config.topName);
+			temTop.appendChild(createDiv(gdate.config.topLeft));
+			temTop.appendChild(createDiv(gdate.config.topMiddle));
+			temTop.appendChild(createDiv(gdate.config.topRight));
+			contain.appendChild(temTop);
+			contain.appendChild(createDiv(gdate.config.contentName));
 			obj.parentNode.insertBefore(contain,obj);
-			containObj=query("#"+gdate.config.containName);
-			containObj.appendChild(createDiv(gdate.config.topName));
-			containObj.appendChild(createDiv(gdate.config.contentName));
-			var temTopObj=query("#"+gdate.config.topName);
-			temTopObj.appendChild(createDiv(gdate.config.topLeft));
-			temTopObj.appendChild(createDiv(gdate.config.topMiddle));
-			temTopObj.appendChild(createDiv(gdate.config.topRight));
 		}
 		formatToNum=extFormat(gdate.config.format);
 		firstPage();
