@@ -3,7 +3,10 @@
 * Author by EchoSoar
 * WebSite:http://iwenku.net 
 */
-(function(obj){
+(function(obj,undefined){
+	if(obj.gdate){
+		return;
+	}
 	var gdate=function(selection,callback){
 		callback=callback||function(dateStr){alert(dateStr);};
 		return gdate.pro.init(selection,callback);
@@ -306,4 +309,4 @@
 	
 	
 	obj.gdate=gdate;
-})(window);
+})(this);
