@@ -1,6 +1,4 @@
-body{
-	background:#fff;
-}
+/* GDate by echosoar*/
 #gdate_contain{
 	position:absolute;
 	width:210px;
@@ -8,6 +6,7 @@ body{
 	border-radius:0 3px 3px 3px;
 	color:#333;
 	box-shadow: 1px 1px 10px #ccc;
+	line-height:30px;
 }
 #gdate_top{
 	height:24px;
@@ -34,6 +33,7 @@ body{
 #gdate_top_left,#gdate_top_right{
 	width:24px;
 	height:24px;
+	line-height:24px;
 	display:inline-block;
 	margin-left:6px;
 	cursor:pointer;

@@ -28,7 +28,7 @@ input{
 </style>
 <div id="center">
 点击下面选择yyyy格式的年份:<br>
-<input type="text" id="form_yyyy" placeholder="点击选择yyyy格式的年份" gdate-format="yyyy" readonly/><br>
+<input type="text" id="form_yyyy" class="a" placeholder="点击选择yyyy格式的年份" gdate-format="yyyy" readonly/><br>
 点击下面选择yy格式的年份:<br>
 <input type="text" id="form_yy" placeholder="点击选择yy格式的年份" gdate-format="yy" readonly/><br>
 点击下面选择mm格式的年份:<br>
@@ -47,7 +47,7 @@ input{
 <script src="gdate_0.1.1.js"></script>
 <script>
 document.getElementById("form_yyyy").onfocus=function(){
-	gdate("#form_yyyy",function(dateStr){
+	gdate(".a",function(dateStr){
 		document.getElementById("form_yyyy").value=dateStr;
 	});
 }
