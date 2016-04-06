@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dome For GDate v0.1.2</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<link rel="stylesheet" type="text/css" href="gdate_0.1.2.css"/>
+</head>
+<body>
+<style>
+body{
+	margin: 0px;
+	font-family: 微软雅黑,黑体,Helvetica,华文黑体;
+	font-size: 14px;
+	color: #333;
+	font-style: normal;
+	background-color: #FFF;
+}
+#center{
+	width:80%;
+	margin:20px auto;
+	min-width:360px;
+}
+input{
+	width:100%;
+	box-sizing:border-box;
+	padding:10px;
+	margin-bottom:20px;
+	border:1px solid #ccc;
+	font-family: 微软雅黑,黑体,Helvetica,华文黑体;
+	border-radius:3px;
+}
+section{
+	line-height:24px;
+}
+p{
+	padding:10px;
+	background:#eee;
+}
+</style>
+<div id="center">
+	点击下面在弹出的万年历上面选择yyyy-mm-dd格式的日期:<br />
+	（点击顶部中央位置可以在返回上一层哦~）<br />
+	<input type="text" id="form_one" placeholder="点击选择yyyy-mm-dd格式的日期" gdate-format="yyyy-mm-dd" readonly /><br />
+	
+	点击下面在弹出的万年历上面选择dd格式的日期:<br />
+	<input type="text" id="form_two" placeholder="点击选择dd格式的日期" gdate-format="dd" readonly /><br />
+	<section>
+		<p>
+			GDate可以在标签上添加 gdate-format 属性来设置调用的万年历格式<br />
+			可以使用 yy、yyyy、m、mm、d、dd来进行相互组合，例如：<br />
+			① yyyy-mm-dd ：回调函数会传入如 2016-04-07 格式的内容。<br />
+			② yy-mm-dd ：回调函数会传入如 16-04-07 格式的内容。<br />
+			③ yy-m-d ：回调函数会传入如 16-4-7 格式的内容。<br />
+			④ yyyy-m-dd ：回调函数会传入如 2016-4-07 格式的内容。<br />
+			⑤ m-dd ：回调函数会传入如 4-07 格式的内容。<br />
+			⑥ d/m ：回调函数会传入如 7/4 格式的内容。<br />
+			...
+		</p>
+		<p>
+			GDate在调用时需要传入一个选择器字符串/元素结点参数和一个可选的回调函数。例如：<br />
+			① 传入选择器字符串：gdate("#form_one");<br />
+			② 传入元素结点参数：gdate(document.getElementById("form_one"));<br />
+			③ 传入回调函数：gdate("#form_one",function(dateStr){console.log(dateStr);});<br />
+		</p>
+		<p>
+			作者：高扬 echosoar<br />
+			博客：<a href="http://iwenku.net" target="_blank">http://iwenku.net</a><br />
+			GitHub：<a href="https://github.com/echosoar/gdate" target="_blank">https://github.com/echosoar/gdate</a><br />
+			如果您对此组件有任何建议或者Bug反馈可以通过下面的邮箱联系我：admin@iwenku.net
+		</p>
+	</section>
+</div>
+<script src="gdate_0.1.2.js"></script>
+<script>
+/* 打开页面时自动调用打开万年历 回调函数的作用是将日期赋给输入框*/
+gdate("#form_one",function(dateStr){
+	this.value=dateStr;
+});
+
+/* 点击输入框时打开万年历*/
+document.getElementById("form_one").onfocus=function(){
+	gdate(this,function(dateStr){
+		this.value=dateStr;
+	});
+}
+document.getElementById("form_two").onfocus=function(){
+	gdate(this,function(dateStr){
+		this.value=dateStr;
+	});
+}
+</script>
+</body>
+</html>

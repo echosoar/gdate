@@ -1,0 +1,116 @@
+/* GDate by echosoar*/
+#gdate_contain{
+	position:absolute;
+	width:336px;
+	font-family:微软雅黑,黑体,Helvetica,华文黑体;
+	border-radius:0 3px 3px 3px;
+	color:#333;
+	box-shadow: 1px 1px 10px #ccc;
+	line-height:30px;
+}
+#gdate_top{
+	height:24px;
+	padding:6px 0;
+	border-radius:0 3px 0 0;
+	background:#69f;
+	color:#fff;
+	font-size:13px;
+	line-height:24px;
+}
+#gdate_top:before{
+	content:"";
+	position:absolute;
+	top:-10px;
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #69f;
+    border-right: 12px solid transparent;
+}
+#gdate_content{
+	border-radius:0 0 3px 3px;
+	background:#eee;
+}
+#gdate_top_left,#gdate_top_right{
+	width:24px;
+	height:24px;
+	line-height:24px;
+	display:inline-block;
+	margin-left:6px;
+	cursor:pointer;
+	border-radius:3px;
+}
+#gdate_top_left{
+	background-image:url("./gdate_0.1.2.png");
+	background-repeat:no-repeat;
+	background-position:0 0;
+}
+#gdate_top_right{
+	background-image:url("./gdate_0.1.2.png");
+	background-repeat:no-repeat;
+	background-position:-24px 0;
+}
+#gdate_top_middle{
+	width:262px;
+	height:24px;
+	display:inline-block;
+	margin-left:6px;
+	cursor:pointer;
+	text-align:center;
+	color:#fff;
+	line-height:24px;
+	font-size:13px;
+	border-radius:3px;
+	vertical-align:top;
+}
+#gdate_top_left:hover,#gdate_top_middle:hover,#gdate_top_right:hover{
+	background-color:#6cf;
+}
+.gdate_btn_year,.gdate_btn_month{
+	width:84px;
+	display:inline-block;
+	text-align:center;
+	height:72px;
+	line-height:72px;
+	background:#fff;
+	font-size:13px;
+	cursor:pointer;
+}
+.gdate_day_date{
+	display:inline-block;
+	width:48px;
+	height:48px;
+	line-height:48px;
+	text-align:center;
+	background:#fff;
+	color:#69c;
+}
+.gdate_btn_day{
+	display:inline-block;
+	width:48px;
+	height:48px;
+	line-height:24px;
+	text-align:center;
+	background:#fff;
+	font-size:13px;
+	cursor:pointer;
+}
+.gdate_btn_day_not{
+	color:#39f;
+}
+.gdate_btn_day:hover{
+	color:#39f;
+	background:#F0F0F0;
+}
+.gdate_btn_year_now,.gdate_btn_month_now,.gdate_btn_day_now,.gdate_btn_year:hover,.gdate_btn_month:hover{
+	color:#39f;
+	background:#F0F0F0;
+}
+.gdate_lunar{
+	position:relative;
+	font-style:normal;
+	line-height:20px;
+	display:block;
+	width:48px;
+	height:24px;
+	font-size:10px;
+}
