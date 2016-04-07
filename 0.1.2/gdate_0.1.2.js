@@ -407,8 +407,9 @@
 		for(var i=0;i<7;i++){
 				ht+='<div class="'+gdate.config.dayDate+'">'+cnDateStr[i]+'</div>';
 		}
-		
+		comD.setDate("1");
 		var xq=(comD.getDay()==7)?0:comD.getDay();
+		comD.setDate(tDay);
 		if(xq>0){
 			var temYear=tYear;
 			var temMonth=tMonth;
