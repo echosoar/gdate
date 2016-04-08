@@ -9,7 +9,7 @@
 	}
 	/* Lunar */
 	(function(O){
-		var gdategdateLunarData=new Array( 
+		var gdateLunarData=new Array( 
 		 0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2, 
 		 0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977, 
 		 0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970, 
@@ -51,23 +51,24 @@
 			"10-1":"国庆节"
 		};
 
-		function gdategdateLunarYearDays(y) { 
+		/*获取农历一年的日数*/
+		function gdateLunarYearDays(y) { 
 			var i, sum = 348;
-			for(i=0x8000; i>0x8; i>>=1){sum += (gdategdateLunarData[y-1900] & i)? 1: 0;}
-			return(sum+gdategdateLunarDays(y)); 
+			for(i=0x8000; i>0x8; i>>=1){sum += (gdateLunarData[y-1900] & i)? 1: 0;}
+			return(sum+gdateLunarDays(y)); 
 		} 
 
-		function gdategdateLunarDays(y) { 
-			if(gdategdateLunarMonth(y)) return((gdategdateLunarData[y-1900] & 0x10000)? 30: 29); 
+		function gdateLunarDays(y) { 
+			if(gdateLunarMonth(y)) return((gdateLunarData[y-1900] & 0x10000)? 30: 29); 
 			else return(0); 
 		} 
 
-		function gdategdateLunarMonth(y){ 
-			return(gdategdateLunarData[y-1900] & 0xf);
+		function gdateLunarMonth(y){ 
+			return(gdateLunarData[y-1900] & 0xf);
 		} 
 
 		function monthDays(y,m){ 
-			return( (gdategdateLunarData[y-1900] & (0x10000>>m))? 30: 29 );
+			return( (gdateLunarData[y-1900] & (0x10000>>m))? 30: 29 );
 		} 
 
 		function gdateLunar(objDate) { 
@@ -75,7 +76,7 @@
 			var baseDate = new Date(1900,0,31);
 			var offset = (objDate - baseDate)/86400000;
 			for(i=1900;i<2050&&offset>0;i++){
-				temp = gdategdateLunarYearDays(i);
+				temp = gdateLunarYearDays(i);
 				offset -= temp;
 			} 
 			if(offset<0) { 
@@ -83,13 +84,13 @@
 				i--; 
 			} 
 			this.year = i;
-			leap = gdategdateLunarMonth(i); //闰哪个月 
+			leap = gdateLunarMonth(i); //闰哪个月 
 			this.isLeap = false;
 			for(i=1; i<13 && offset>0; i++){ 
 				if(leap>0 && i==(leap+1) && this.isLeap==false){
 					--i;
 					this.isLeap = true;
-					temp = gdategdateLunarDays(this.year);
+					temp = gdateLunarDays(this.year);
 				}else{
 					temp = monthDays(this.year, i);
 				} 
